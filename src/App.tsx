@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
+import ServiceDetail from "./pages/ServiceDetail";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => {
                 <Route path="/become-seller" element={<BecomeSeller />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/service/:id" element={<ServiceDetail />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

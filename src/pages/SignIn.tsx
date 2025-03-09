@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +9,36 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const formRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    // Add animation to form elements
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          const formElements = formRef.current?.querySelectorAll('.animate-item');
+          formElements?.forEach((el, index) => {
+            setTimeout(() => {
+              el.classList.add('animate-fade-in-up');
+            }, index * 100);
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
+    
+    return () => {
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
+    };
+  }, []);
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,17 +73,17 @@ const SignIn = () => {
   };
   
   return (
-    <div className="min-h-screen pt-28 pb-16 flex flex-col justify-center">
+    <div className="min-h-screen pt-28 pb-16 flex flex-col justify-center bg-gradient-to-b from-background to-accent/10">
       <div className="container mx-auto px-4">
-        <div className="max-w-md mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold">Welcome back</h1>
+        <div className="max-w-md mx-auto" ref={formRef}>
+          <div className="text-center mb-8 animate-item opacity-0">
+            <h1 className="text-3xl font-bold font-display">Welcome back</h1>
             <p className="mt-2 text-muted-foreground">
               Sign in to your GigHubify account
             </p>
           </div>
           
-          <div className="bg-card p-8 rounded-xl border border-border/50 shadow-subtle">
+          <div className="bg-card p-8 rounded-xl border border-border/50 shadow-subtle animate-item opacity-0">
             {error && (
               <div className="mb-6 p-4 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive text-sm">
                 {error}
@@ -61,8 +91,8 @@ const SignIn = () => {
             )}
             
             <form onSubmit={handleSubmit}>
-              <div className="space-y-4">
-                <div>
+              <div className="space-y-5">
+                <div className="animate-item opacity-0">
                   <label htmlFor="email" className="block text-sm font-medium mb-1">
                     Email
                   </label>
@@ -76,13 +106,13 @@ const SignIn = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-shadow"
                       disabled={isLoading}
                     />
                   </div>
                 </div>
                 
-                <div>
+                <div className="animate-item opacity-0">
                   <div className="flex justify-between items-center mb-1">
                     <label htmlFor="password" className="block text-sm font-medium">
                       Password
@@ -101,7 +131,7 @@ const SignIn = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-10 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-shadow"
                       disabled={isLoading}
                     />
                     <button
@@ -120,15 +150,16 @@ const SignIn = () => {
                 
                 <button
                   type="submit"
-                  className="w-full btn-primary"
+                  className="w-full btn-primary py-2.5 group animate-item opacity-0"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Signing in...' : 'Sign in'}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
             </form>
             
-            <div className="mt-6 text-center">
+            <div className="mt-6 text-center animate-item opacity-0">
               <span className="text-muted-foreground text-sm">Don't have an account?</span>{' '}
               <Link to="/signup" className="text-sm text-primary hover:underline">
                 Create an account

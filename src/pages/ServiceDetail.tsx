@@ -73,7 +73,7 @@ const servicesData = [
       responseTime: '30 minutes',
       completedProjects: 342
     },
-    longDescription: 'Transform the look and feel of your footage with my professional color grading services. I'll enhance the mood, atmosphere, and visual consistency of your videos, giving them a cinematic and professional quality. My color correction will fix any exposure, white balance, or color issues in your footage, ensuring your content looks its absolute best.',
+    longDescription: 'Transform the look and feel of your footage with my professional color grading services. I\'ll enhance the mood, atmosphere, and visual consistency of your videos, giving them a cinematic and professional quality. My color correction will fix any exposure, white balance, or color issues in your footage, ensuring your content looks its absolute best.',
     features: [
       'Cinematic color grading',
       'Color correction for inconsistent footage',

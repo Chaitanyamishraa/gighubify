@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -43,34 +43,15 @@ const Hero = () => {
   
   return (
     <div className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden" ref={heroRef}>
-      {/* Animated shapes */}
+      {/* Gradient circles */}
       <div className="absolute top-20 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 animate-pulse-subtle"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent/30 rounded-full blur-3xl animate-pulse-subtle"></div>
       <div className="absolute top-40 right-10 w-24 h-24 bg-primary/5 rounded-full blur-xl animate-float"></div>
-      <div className="absolute bottom-40 left-20 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
-      
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(10)].map((_, i) => (
-          <div 
-            key={i}
-            className="absolute bg-primary/10 rounded-full animate-float"
-            style={{
-              width: `${Math.random() * 10 + 5}px`,
-              height: `${Math.random() * 10 + 5}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${Math.random() * 10 + 10}s`
-            }}
-          ></div>
-        ))}
-      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center" ref={textRef}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-display">
-            Find the <span className="text-gradient">Perfect Video Editor</span> for Your Project
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            Find the Perfect Video Editor for Your Project
           </h1>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Connect with professional video editors. Get high-quality edits, fast turnaround, and competitive prices.
@@ -81,17 +62,18 @@ const Hero = () => {
               Find an Editor
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link to="/become-seller" className="btn-secondary group">
+            <Link to="/become-seller" className="btn-secondary">
               Become an Editor
-              <ArrowRight className="ml-2 h-4 w-4 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-subtle opacity-70">
-        <ChevronDown className="h-6 w-6 text-muted-foreground" />
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-70">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
       </div>
     </div>
   );

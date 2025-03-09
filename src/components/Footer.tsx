@@ -1,39 +1,16 @@
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Instagram, Youtube, ArrowRight } from 'lucide-react';
+import { Github, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
-  const footerRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          footerRef.current?.classList.add('animate-fade-in');
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-    
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
-  }, []);
-  
   return (
-    <footer ref={footerRef} className="bg-gradient-to-b from-background to-accent/20 border-t border-border/50 opacity-0">
+    <footer className="bg-card border-t border-border/50">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <span className="text-2xl font-bold text-gradient font-display">
+              <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 GigHubify
               </span>
             </Link>
@@ -41,39 +18,36 @@ const Footer = () => {
               Connecting talented video editors with clients worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="h-5 w-5" />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4 font-display">For Clients</h4>
+            <h4 className="font-semibold mb-4">For Clients</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/explore" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/explore" className="text-muted-foreground hover:text-foreground transition-colors">
                   Find Editors
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
                   How it Works
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                   Pricing
                 </Link>
               </li>
@@ -81,23 +55,20 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4 font-display">For Editors</h4>
+            <h4 className="font-semibold mb-4">For Editors</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/become-seller" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/become-seller" className="text-muted-foreground hover:text-foreground transition-colors">
                   Start Selling
                 </Link>
               </li>
               <li>
-                <Link to="/community" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/community" className="text-muted-foreground hover:text-foreground transition-colors">
                   Community
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/resources" className="text-muted-foreground hover:text-foreground transition-colors">
                   Resources
                 </Link>
               </li>
@@ -105,23 +76,20 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4 font-display">Company</h4>
+            <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
-                  <ArrowRight className="h-3 w-3 mr-2 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
               </li>
@@ -134,13 +102,13 @@ const Footer = () => {
             © {new Date().getFullYear()} GigHubify. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Terms
             </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacy
             </Link>
-            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Cookies
             </Link>
           </div>

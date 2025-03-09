@@ -28,17 +28,10 @@ const App = () => {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent/30 to-background">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center">
-          <div className="relative">
-            <div className="h-16 w-16 rounded-full border-4 border-primary/30 border-t-primary animate-spin"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-10 w-10 rounded-full bg-primary/20 animate-pulse-subtle"></div>
-            </div>
-          </div>
-          <p className="text-gradient font-display text-xl mt-4 animate-pulse-subtle">
-            Loading GigHubify...
-          </p>
+          <div className="h-12 w-12 rounded-full border-4 border-primary/30 border-t-primary animate-spin mb-4"></div>
+          <p className="text-muted-foreground animate-pulse">Loading GigHubify...</p>
         </div>
       </div>
     );

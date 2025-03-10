@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, PlusCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
@@ -43,18 +43,35 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/gighubify-logo.png" 
+              alt="GigHubify Logo" 
+              className="h-10 w-auto mr-2"
+            />
             <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               GigHubify
             </span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link 
               to="/explore" 
               className={`font-medium transition-colors hover:text-primary ${location.pathname === '/explore' ? 'text-primary' : 'text-foreground/80'}`}
             >
               Explore
+            </Link>
+            <Link 
+              to="/blog" 
+              className={`font-medium transition-colors hover:text-primary ${location.pathname === '/blog' ? 'text-primary' : 'text-foreground/80'}`}
+            >
+              Blog
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`font-medium transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-foreground/80'}`}
+            >
+              Contact
             </Link>
             <Link 
               to="/become-seller" 
@@ -75,6 +92,13 @@ const Navbar = () => {
               >
                 Sign Up
               </Link>
+              <Link
+                to="/add-gig"
+                className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors text-primary"
+                title="Add a new gig"
+              >
+                <PlusCircle size={20} />
+              </Link>
               <button 
                 onClick={toggleTheme} 
                 className="p-2 rounded-full bg-accent hover:bg-accent/80 transition-colors"
@@ -87,6 +111,13 @@ const Navbar = () => {
           
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center space-x-4">
+            <Link
+              to="/add-gig"
+              className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors text-primary"
+              title="Add a new gig"
+            >
+              <PlusCircle size={20} />
+            </Link>
             <button 
               onClick={toggleTheme} 
               className="p-2 rounded-full bg-accent hover:bg-accent/80 transition-colors"
@@ -115,6 +146,20 @@ const Navbar = () => {
               className={`font-medium transition-colors hover:text-primary ${location.pathname === '/explore' ? 'text-primary' : 'text-foreground/80'}`}
             >
               Explore
+            </Link>
+            <Link 
+              to="/blog" 
+              onClick={closeMenu}
+              className={`font-medium transition-colors hover:text-primary ${location.pathname === '/blog' ? 'text-primary' : 'text-foreground/80'}`}
+            >
+              Blog
+            </Link>
+            <Link 
+              to="/contact" 
+              onClick={closeMenu}
+              className={`font-medium transition-colors hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : 'text-foreground/80'}`}
+            >
+              Contact
             </Link>
             <Link 
               to="/become-seller" 

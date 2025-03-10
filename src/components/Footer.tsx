@@ -1,116 +1,155 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Instagram, Youtube } from 'lucide-react';
+import { ExternalLink, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="bg-card border-t border-border/50">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="space-y-4">
-            <Link to="/" className="inline-block">
-              <span className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                GigHubify
-              </span>
-            </Link>
-            <p className="text-muted-foreground">
-              Connecting talented video editors with clients worldwide.
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/lovable-uploads/gighubify-logo.png" 
+                alt="GigHubify Logo" 
+                className="h-10 w-auto mr-2"
+              />
+              <span className="text-xl font-bold">GigHubify</span>
+            </div>
+            <p className="text-muted-foreground mb-6">
+              Connecting video editors with clients worldwide. Find the perfect editor for your project or offer your services.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Instagram className="h-5 w-5" />
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Twitter size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Youtube className="h-5 w-5" />
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="h-5 w-5" />
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Youtube size={20} />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">For Clients</h4>
+            <h3 className="font-semibold text-lg mb-4">For Clients</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/explore" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Find Editors
+                <Link to="/explore" className="text-muted-foreground hover:text-primary transition-colors">
+                  Find Video Editors
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
-                  How it Works
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Pricing
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">For Editors</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/become-seller" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Start Selling
-                </Link>
-              </li>
-              <li>
-                <Link to="/community" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Community
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Resources
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Contact
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Payment Protection
+                </a>
+              </li>
+              <li>
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Support
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">For Editors</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/become-seller" className="text-muted-foreground hover:text-primary transition-colors">
+                  Join as an Editor
+                </Link>
+              </li>
+              <li>
+                <Link to="/add-gig" className="text-muted-foreground hover:text-primary transition-colors">
+                  Create a Gig
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Editor Resources
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Community Standards
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Editor Forum
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">About</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} GigHubify. All rights reserved.
+        <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-muted-foreground text-sm mb-4 md:mb-0">
+            &copy; {currentYear} GigHubify. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Terms
-            </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Privacy
-            </Link>
-            <Link to="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Cookies
-            </Link>
+          <div className="flex items-center space-x-4">
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center">
+              <span>English</span>
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center">
+              <span>USD</span>
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center">
+              Accessibility
+              <ExternalLink className="ml-1 h-3 w-3" />
+            </a>
           </div>
         </div>
       </div>
